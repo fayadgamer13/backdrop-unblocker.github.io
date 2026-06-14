@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BackDrop Unblocker - Material You Wallpaper Customizer</title>
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts for Material You aesthetic -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap" rel="stylesheet">
+
+  <style src="index.css"></style>
+</head>
+<body class="bg-[#141218] text-[#e6e1e5] min-h-screen flex flex-col justify-between font-sans selection:bg-[#ecdcff] selection:text-[#250059] overflow-x-hidden relative transition-all duration-500">
+
+  <!-- Dynamic Material You Accent Background Blobs -->
+  <div class="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] bg-[#6750a4] rounded-full blur-[120px] pointer-events-none opacity-20 animate-pulse-slow"></div>
+  <div class="absolute bottom-[-10%] right-[-10%] w-[60vw] h-[60vw] bg-[#9a82db] rounded-full blur-[150px] pointer-events-none opacity-10 animate-pulse-slow" style="animation-delay: -3s;"></div>
+
+  <!-- Header -->
+  <header class="w-full max-w-7xl mx-auto px-6 py-6 flex flex-col md:flex-row items-center justify-between gap-4 z-10 relative">
+    <div class="flex items-center gap-3">
+      <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-[#d0bcff] to-[#381e72] flex items-center justify-center shadow-lg">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="white" class="w-6 h-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+        </svg>
+      </div>
+      <div>
+        <h1 class="text-2xl font-bold tracking-tight bg-gradient-to-r from-white via-[#e8def8] to-[#d0bcff] bg-clip-text text-transparent">
+          BackDrop Unblocker
+        </h1>
+        <p class="text-xs text-[#cac4d0]">Material You Wallpapers &amp; Screen Enhancements</p>
+      </div>
+    </div>
+
+    <!-- Active dynamic theme color visualizer -->
+    <div class="flex items-center gap-2 bg-[#211f26] border border-[#4f375e] rounded-full py-1.5 px-3">
+      <span class="text-xs font-medium text-[#ccc4dc]">Active Theme:</span>
+      <div class="w-3.5 h-3.5 rounded-full bg-[#d0bcff]"></div>
+      <span class="text-xs text-[#d0bcff] font-bold">Amethyst Silk</span>
+    </div>
+  </header>
+
+  <!-- Main Workspace -->
+  <main class="w-full max-w-7xl mx-auto px-6 py-4 flex-grow grid grid-cols-1 lg:grid-cols-12 gap-8 z-10 relative">
+    
+    <!-- Left Column: Generator Workspace (7 cols) -->
+    <section class="lg:col-span-7 flex flex-col gap-6">
+      <!-- Upload Core Area Card -->
+      <div class="bg-[#1d1b20] border border-[#35343a] rounded-4xl p-6 md:p-8 shadow-xl relative overflow-hidden flex flex-col justify-between h-full">
+        <div>
+          <span class="text-xs font-semibold uppercase tracking-widest text-[#d0bcff] bg-[#381e72] px-3 py-1 rounded-full">Workspace</span>
+          <h2 class="text-2xl md:text-3xl font-bold text-white mt-4 mb-2">Configure Your Backdrop</h2>
+          <p class="text-[#cac4d0] text-sm mb-6">Drop Your Nice Wallpaper Here!</p>
+          
+          <!-- Drop Area / Picker -->
+          <div id="dropzone" class="border-2 border-dashed border-[#4f375e] hover:border-[#d0bcff] bg-[#252329] rounded-3xl p-8 flex flex-col items-center justify-center text-center cursor-pointer transition-all duration-300 relative group min-h-[260px]">
+            <input type="file" id="mediaInput" class="absolute inset-0 opacity-0 cursor-pointer" accept="image/*,video/*">
+            
+            <!-- Default placeholder content inside dropzone -->
+            <div id="dropzonePlaceholder" class="flex flex-col items-center justify-center transition-all duration-300">
+              <div class="w-16 h-16 rounded-full bg-[#211f26] flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 border border-[#35343a]">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#d0bcff" class="w-8 h-8">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 16.5V9.75m0 0 3 3m-3-3-3 3M6.75 19.5a4.5 4.5 0 0 1-1.41-8.775 5.25 5.25 0 0 1 10.233-2.33 3 3 0 0 1 3.758 3.848A3.752 3.752 0 0 1 18 19.5H6.75Z" />
+                </svg>
+              </div>
+              <h3 class="text-lg font-semibold text-white mb-1">Upload Or Drag the file</h3>
+              <p class="text-xs text-[#938f99] max-w-sm px-4">Drag and drop, or tap to choose a file. Compatible with PNG, SVG, GIF, WebP, JPG, MP4, MOV, WEBM, and more.</p>
+            </div>
+
+            <!-- Upload active state preview -->
+            <div id="previewContainer" class="hidden w-full h-full absolute inset-0 rounded-3xl overflow-hidden bg-[#141218]">
+              <!-- Target Dynamic Image / Video Placement -->
+              <div id="previewMediaWrapper" class="w-full h-full flex items-center justify-center bg-[#141218]"></div>
+              
+              <!-- Indicator Pill overlay -->
+              <div class="absolute bottom-4 left-1/2 -translate-x-1/2 bg-[#1d1b20]/90 backdrop-blur-md px-4 py-2 rounded-full border border-[#4f375e]/60 flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#25d366" class="w-4 h-4 animate-pulse">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                </svg>
+                <span id="previewMeta" class="text-xs font-medium text-white truncate max-w-[200px]">wallpaper.png</span>
+                <button type="button" id="removeMediaBtn" class="text-xs text-[#ffb4ab] font-bold hover:underline ml-2 pointer-events-auto">Change</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-8 flex flex-col sm:flex-row gap-4 items-center">
+          <button id="createBtn" class="w-full sm:w-auto px-8 py-4 bg-[#d0bcff] hover:bg-[#b096e6] text-[#381e72] font-semibold rounded-full shadow-lg transition-all duration-300 hover:shadow-xl active:scale-95 flex items-center justify-center gap-2 relative overflow-hidden group">
+            <span class="relative z-10">Create Wallpaper</span>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-5 h-5 relative z-10 transition-transform group-hover:translate-x-1">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
+            </svg>
+            <div class="absolute inset-0 w-full h-full bg-gradient-to-r from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          </button>
+          
+          <div class="flex items-center gap-2 text-xs text-[#938f99]">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-[#d0bcff]">
+              <path stroke-linecap="round" stroke-linejoin="round" d="m11.25 11.25.041-.02a.75.75 0 1 1 1.063 1.063l-.041.02-.08.042-.164.082a21.82 21.82 0 0 1-1.144.515m-1.921-.67-.105-.034A1.125 1.125 0 1 1 9 12.75h.018m9.06 4.364c-.53-.47-1.125-.85-1.768-1.132a21.78 21.78 0 0 0-5.748-1.523M19.5 12h-12" />
+            </svg>
+            No framing restrictions. Clean fullscreen rendering.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Right Column: Projects, Customization Settings & Author details (5 cols) -->
+    <section class="lg:col-span-5 flex flex-col gap-6">
+      
+      <!-- Quick instructions Card -->
+      <div class="bg-gradient-to-br from-[#25232a] to-[#1e1a24] border border-[#35343a] rounded-4xl p-6 relative overflow-hidden">
+        <h3 class="text-md font-bold text-white mb-2 flex items-center gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="#d0bcff" class="w-5 h-5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904 9 21l8.982-11.795H14l1-6.109L6 14.904h6.813Z" />
+          </svg>
+          Quick Control Guide
+        </h3>
+        <ul class="space-y-3 text-xs text-[#cac4d0]">
+          <li class="flex items-start gap-2">
+            <span class="w-1.5 h-1.5 rounded-full bg-[#d0bcff] mt-1.5 shrink-0"></span>
+            <span>Choose any static graphic asset or standard dynamic video source.</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="w-1.5 h-1.5 rounded-full bg-[#d0bcff] mt-1.5 shrink-0"></span>
+            <span>Once live, system statusbars & headers will remain entirely hidden.</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="w-1.5 h-1.5 rounded-full bg-[#ffb4ab] mt-1.5 shrink-0"></span>
+            <span>Press <kbd class="bg-[#381e72] text-[#e8def8] px-1.5 py-0.5 rounded font-mono border border-[#4f375e] font-bold">Ctrl + Alt + S</kbd> anywhere in full-display mode to close and safely return.</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Author Card -->
+      <div class="bg-[#1d1b20] border border-[#35343a] rounded-4xl p-6 shadow-md transition-all duration-300 hover:shadow-lg relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-24 h-24 bg-[#d0bcff]/5 rounded-bl-full pointer-events-none"></div>
+        <h3 class="text-sm font-semibold tracking-wider text-[#938f99] uppercase mb-4">Creator / Architect</h3>
+        <div class="flex items-center gap-4">
+          <!-- Premium Custom Avatar Grid -->
+          <div class="relative group">
+            <div class="absolute -inset-0.5 bg-gradient-to-r from-[#d0bcff] to-[#381e72] rounded-full blur opacity-60 group-hover:opacity-100 transition duration-300"></div>
+            <div class="relative w-14 h-14 rounded-full overflow-hidden border border-[#4f375e] bg-[#211f26] flex items-center justify-center">
+                <img src="https://avatars.githubusercontent.com/u/211319626?v=4" alt="Fayadgamer13 Avatar" class="w-full h-full object-cover">
+            </div>
+          </div>
+          <div>
+            <h4 class="text-md font-bold text-white">Fayadgamer13</h4>
+            <p class="text-xs text-[#938f99]">Interface Designer &amp; Dev Enthusiast</p>
+            <div class="flex gap-2.5 mt-2">
+              <a href="https://github.com/fayadgamer13" class="text-xs text-[#d0bcff] hover:underline font-medium">@fayadgamer13</a>
+              <span class="text-[#4f375e]">•</span>
+              <span class="text-xs text-[#cac4d0]">Melbourne, AU</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Other Projects Collection -->
+      <div class="bg-[#1d1b20] border border-[#35343a] rounded-4xl p-6 shadow-md">
+        <h3 class="text-sm font-semibold tracking-wider text-[#938f99] uppercase mb-4">Other Projects</h3>
+        <div class="grid grid-cols-1 gap-3">
+          <!-- Project Card 1 -->
+          <div class="group bg-[#211f26] hover:bg-[#2a2730] border border-[#35343a] hover:border-[#4f375e] rounded-2xl p-4 transition-all duration-300 flex items-center justify-between cursor-pointer">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-[#2b243c] flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+                <!-- Color palette icon -->
+                 <img src="airsky-logo.png" alt="AirSky Logo" class="w-5 h-5 object-contain">
+              </div>
+              <div>
+                <h4 class="text-sm font-bold text-white group-hover:text-[#d0bcff] transition-colors">AirSky</h4>
+                <p class="text-xs text-[#938f99]">Play Games Unblocked!</p>
+                 <a href="https://fayadgamer13.github.io/AirSky.github.io" class="text-xs text-[#d0bcff] hover:underline font-medium">Open</a>
+              </div>
+            </div>
+            <div class="text-[#938f99] group-hover:translate-x-1 transition-transform">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+              </svg>
+            </div>
+          </div>
+
+          <!-- Project Card 2 -->
+          <div class="group bg-[#211f26] hover:bg-[#2a2730] border border-[#35343a] hover:border-[#4f375e] rounded-2xl p-4 transition-all duration-300 flex items-center justify-between cursor-pointer">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-[#25322b] flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+                <!-- Lock / Unblock icon -->
+                 <img src="east-halalscan-logo.png" alt="East HalalScan Logo" class="w-5 h-5 object-contain">
+              </div>
+              <div>
+                <h4 class="text-sm font-bold text-white group-hover:text-emerald-300 transition-colors">East HalalScan</h4>
+                <p class="text-xs text-[#938f99]">Find Halal food near you</p>
+                <a href="https://fayadgamer13.github.io/Halal_Finder.github.io" class="text-xs text-[#d0bcff] hover:underline font-medium">Open</a>
+              </div>
+            </div>
+            <div class="text-[#938f99] group-hover:translate-x-1 transition-transform">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  <!-- Footer Info -->
+  <footer class="w-full max-w-7xl mx-auto px-6 py-6 text-center text-xs text-[#938f99] border-t border-[#35343a]/50 mt-12 z-10 relative">
+    <p>© 2026 BackDrop Unblocker. Built under the Material Design v3 dynamic theme specification. All rights reserved.</p>
+  </footer>
+
+  <!-- Dialog Backdrop -->
+  <div id="dialogOverlay" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-all duration-300">
+    <!-- Dialog container -->
+    <div id="dialogBox" class="bg-[#211f26] border border-[#4f375e] w-full max-w-md rounded-4xl p-6 shadow-2xl scale-95 opacity-0 transition-all duration-300">
+      
+      <!-- Icon & Title -->
+      <div class="flex items-center gap-3 mb-4">
+        <div class="w-10 h-10 rounded-full bg-[#381e72] flex items-center justify-center">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="#d0bcff" class="w-5 h-5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3.75v16.5h16.5V3.75H3.75Zm1.5 1.5h13.5v13.5H5.25V5.25Z" />
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 9h6v6H9V9Z" />
+          </svg>
+        </div>
+        <div>
+          <h3 class="text-lg font-bold text-white">Select Target Screen Resolution</h3>
+          <p class="text-xs text-[#938f99]">Configure display bounds & alignment</p>
+        </div>
+      </div>
+
+      <!-- Size Pickers / Radios -->
+      <div class="space-y-2.5 mb-6">
+        <!-- Fit Device (Default Recommended) -->
+        <label class="flex items-center justify-between p-3.5 rounded-2xl bg-[#2a2730] hover:bg-[#322f39] border border-[#4f375e] cursor-pointer transition-all">
+          <div class="flex items-center gap-3">
+            <input type="radio" name="screen_size" value="fit" checked class="accent-[#d0bcff] w-4 h-4">
+            <div>
+              <span class="text-sm font-semibold text-white block">Fit Native Screen Size</span>
+              <span class="text-xs text-[#cac4d0]">Matches current viewport display exactly</span>
+            </div>
+          </div>
+          <span class="text-xs bg-[#381e72] text-[#d0bcff] px-2 py-0.5 rounded font-mono font-semibold" id="nativeSizeDisplay">---</span>
+        </label>
+
+        <!-- 1920 x 1080 -->
+        <label class="flex items-center justify-between p-3.5 rounded-2xl bg-[#1d1b20] hover:bg-[#252329] border border-[#35343a] cursor-pointer transition-all">
+          <div class="flex items-center gap-3">
+            <input type="radio" name="screen_size" value="1920x1080" class="accent-[#d0bcff] w-4 h-4">
+            <div>
+              <span class="text-sm font-medium text-white block">Ultra-HD 1080p</span>
+              <span class="text-xs text-[#938f99]">Classic desktop aspect ratio</span>
+            </div>
+          </div>
+          <span class="text-xs text-[#938f99] font-mono">1920 x 1080</span>
+        </label>
+
+        <!-- 1366 x 768 -->
+        <label class="flex items-center justify-between p-3.5 rounded-2xl bg-[#1d1b20] hover:bg-[#252329] border border-[#35343a] cursor-pointer transition-all">
+          <div class="flex items-center gap-3">
+            <input type="radio" name="screen_size" value="1366x768" class="accent-[#d0bcff] w-4 h-4">
+            <div>
+              <span class="text-sm font-medium text-white block">Standard Laptop</span>
+              <span class="text-xs text-[#938f99]">Highly optimized low footprint ratio</span>
+            </div>
+          </div>
+          <span class="text-xs text-[#938f99] font-mono">1366 x 768</span>
+        </label>
+
+        <!-- Custom Mode Setup -->
+        <div class="p-3.5 rounded-2xl bg-[#1d1b20] border border-[#35343a] flex flex-col gap-2">
+          <label class="flex items-center gap-3 cursor-pointer">
+            <input type="radio" name="screen_size" value="custom" id="customRadio" class="accent-[#d0bcff] w-4 h-4">
+            <span class="text-sm font-medium text-white">Custom Resolution</span>
+          </label>
+          <div class="grid grid-cols-2 gap-2 mt-1 pl-7">
+            <div>
+              <label class="text-[10px] text-[#938f99] uppercase block mb-1">Width (px)</label>
+              <input type="number" id="customWidth" value="2560" placeholder="e.g. 2560" class="w-full bg-[#252329] border border-[#35343a] rounded-lg px-2.5 py-1 text-sm text-white focus:outline-none focus:border-[#d0bcff]">
+            </div>
+            <div>
+              <label class="text-[10px] text-[#938f99] uppercase block mb-1">Height (px)</label>
+              <input type="number" id="customHeight" value="1440" placeholder="e.g. 1440" class="w-full bg-[#252329] border border-[#35343a] rounded-lg px-2.5 py-1 text-sm text-white focus:outline-none focus:border-[#d0bcff]">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="flex items-center justify-end gap-3">
+        <button id="closeDialogBtn" class="px-5 py-2.5 text-sm text-[#d0bcff] font-semibold hover:bg-[#381e72]/50 rounded-full transition-all">
+          Cancel
+        </button>
+        <button id="confirmLaunchBtn" class="px-6 py-2.5 text-sm bg-[#d0bcff] hover:bg-[#b096e6] text-[#381e72] font-semibold rounded-full shadow-md hover:shadow-lg transition-all flex items-center gap-1.5">
+          <span>Apply Wallpaper</span>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4">
+            <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd" />
+          </svg>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Custom Alert System Box for errors or notifications instead of browser alerts -->
+  <div id="customAlert" class="fixed bottom-6 right-6 z-50 bg-[#ffb4ab] text-[#690005] border border-[#ffb4ab] px-5 py-4 rounded-3xl shadow-2xl max-w-md flex items-center gap-3 transform translate-y-20 opacity-0 pointer-events-none transition-all duration-300">
+    <div class="w-8 h-8 rounded-full bg-[#690005] flex items-center justify-center shrink-0">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="#ffb4ab" class="w-5 h-5">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 3.75h.008v.008H12v-.008Z" />
+      </svg>
+    </div>
+    <div>
+      <h4 class="font-bold text-sm">Action Needed</h4>
+      <p class="text-xs opacity-90" id="alertMessage">Please choose or drop an asset before executing the unblocked view.</p>
+    </div>
+    <button id="dismissAlertBtn" class="ml-4 text-xs font-bold uppercase hover:underline shrink-0">Close</button>
+  </div>
+
+  <!-- Wallpaper Output View Overlays -->
+  <div id="wallpaperOutputLayer" class="fixed inset-0 z-[9999] bg-black hidden flex-col items-center justify-center overflow-hidden">
+    <!-- Unblocked wallpaper host inside this container -->
+    <div id="wallpaperMediaContainer" class="w-full h-full flex items-center justify-center select-none overflow-hidden no-drag">
+      <!-- Injected image or video will go here -->
+    </div>
+
+    <!-- Interactive escape banner displayed initially -->
+    <div id="escapeOverlayBanner" class="absolute top-8 left-1/2 -translate-x-1/2 bg-[#1d1b20]/95 backdrop-blur-lg border border-[#4f375e] text-[#e6e1e5] py-3.5 px-6 rounded-full shadow-2xl z-50 transition-all duration-500 flex items-center gap-3 select-none pointer-events-none">
+      <div class="w-2.5 h-2.5 rounded-full bg-[#d0bcff] animate-ping"></div>
+      <p class="text-xs font-medium tracking-wide">
+        BackDrop Active • Press <kbd class="bg-[#381e72] text-[#e8def8] px-2 py-1 rounded font-mono font-bold mx-1 border border-[#4f375e]">Ctrl + Alt + S</kbd> to Exit Fullscreen & close.
+      </p>
+    </div>
+  </div>
+  <script src="index.js"></script>
+</body>
+</html>
